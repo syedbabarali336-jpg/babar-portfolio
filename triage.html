@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binary Triage - live demo | Syed Babar Hasnain Ali Naqvi</title>
+<meta name="description" content="Paste raw strings or hash output from an unknown file and get a structured analysis-report skeleton. Runs entirely in your browser.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/favicon.svg" alt="SB monogram">Syed Babar Hasnain Ali Naqvi</a>
+    <nav class="top">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="triage.html" aria-current="page">Triage</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <span class="kicker">Live demo</span>
+    <h1>Binary Triage</h1>
+    <p class="lede">My claim is that I take an unknown file from &ldquo;what is this?&rdquo; to &ldquo;here's what it does and what to do about it.&rdquo; This is that first step, running. Paste terminal output below &mdash; <code>strings</code>, hashes, imports, anything the file gives up &mdash; and Binary Triage drafts the report skeleton an analyst starts from.</p>
+    <p class="cta-note">Everything runs locally in your browser. Nothing you paste leaves your machine.</p>
+
+    <label for="paste" style="display:block;margin-top:26px;font-weight:500">Paste tool output</label>
+    <textarea id="paste" placeholder="e.g. output of: strings suspicious.exe | more"></textarea>
+    <div id="err" class="err" role="alert"></div>
+    <div class="btnrow">
+      <button class="ghost" id="analyze">Analyze</button>
+      <button class="ghost" id="sample">Load sample strings output</button>
+      <button class="ghost" id="clear">Clear</button>
+    </div>
+    <div id="report" class="report"></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>This is the first mile. Want to see how the whole journey runs?</h2>
+    <a class="cta-btn" href="https://cal.com/portfolio-analysis-review">Book a short call to review my analysis approach</a>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>&copy; 2026 Syed Babar Hasnain Ali Naqvi &middot; Built with AI, honestly documented.</p>
+    <!-- FLYRANK BADGE: replace this block with the official graduate badge snippet once issued -->
+    <span class="badge-slot"><a href="#" title="FlyRank verification - badge pending">FlyRank graduate badge - pending issue</a></span>
+  </div>
+</footer>
+<script src="js/triage.js"></script>
+</body>
+</html>

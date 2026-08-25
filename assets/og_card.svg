@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Week 3 · Social/OG preview card -->
+  <!-- Identity kit v2: ground #1A1D21 · text #FAFAF7 · single accent #2A9D8F · one teal rule -->
+  <rect width="1200" height="630" fill="#1A1D21"/>
+
+  <!-- Corner monogram mark -->
+  <text x="1120" y="106"
+        font-family="'Space Grotesk', 'Segoe UI', Arial, sans-serif"
+        font-size="30" font-weight="700" letter-spacing="2"
+        fill="#2A9D8F" text-anchor="end">SB</text>
+
+  <!-- Claim line (the hero is the sentence itself — no imagery) -->
+  <g font-family="'Space Grotesk', 'Segoe UI', Arial, sans-serif"
+     font-size="58" font-weight="600" fill="#FAFAF7">
+    <text x="80" y="212">I can reverse-engineer malware</text>
+    <text x="80" y="292">and binaries into clear,</text>
+    <text x="80" y="372">actionable analysis.</text>
+  </g>
+
+  <!-- The single accent: one teal rule -->
+  <rect x="80" y="440" width="140" height="6" fill="#2A9D8F"/>
+</svg>
