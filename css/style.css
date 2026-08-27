@@ -113,3 +113,16 @@ footer.site .wrap{display:flex;justify-content:space-between;align-items:center;
 footer.site p{font-size:.85rem;color:var(--slate);max-width:none}
 .badge-slot{font-size:.85rem;color:var(--slate);display:flex;align-items:center;gap:8px}
 .badge-slot a{color:var(--slate)}
+
+/* ---------- contact form ---------- */
+.contact-form{margin:26px 0;background:#fff;border:1px solid var(--hairline);border-radius:8px;padding:28px;max-width:540px}
+.contact-form .field{margin-bottom:22px}
+.contact-form label{display:block;font-family:'Space Grotesk';font-weight:600;font-size:.95rem;color:var(--ink);margin-bottom:8px}
+.contact-form input[type=text],.contact-form input[type=email],.contact-form textarea{
+  width:100%;font-family:'Inter',system-ui,sans-serif;font-size:1rem;line-height:1.55;
+  padding:12px 14px;border:1px solid var(--hairline);border-radius:6px;color:var(--ink);background:#fff;
+}
+.contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--slate);outline-offset:-1px;border-color:var(--slate)}
+.contact-form textarea{resize:vertical;font-size:.95rem}
+.contact-form button[type=submit]{margin-top:8px}
+.form-status{display:block;margin-top:14px;font-size:.9rem;min-height:1.5em}
