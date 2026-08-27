@@ -33,13 +33,13 @@
   <div class="wrap">
     <span class="kicker">Contact</span>
     <h1>I reverse-engineer malware and binaries into clear, actionable analysis.</h1>
-    <p class="lede">The next step is one message.</p>
+    <p class="lede">The next step is one message or one call.</p>
     <p style="margin:30px 0 10px"><a class="cta-btn" href="https://cal.com/portfolio-analysis-review">Book a short call to review my analysis approach</a></p>
 
     <h3 style="margin-top:34px">Or send a quick message</h3>
-    <p>The form below goes straight to my inbox. No backend, no signup, no third-party tracking &mdash; the form posts to a free Formspree endpoint, Formspree forwards it to <code>syedbabarali336@gmail.com</code>, and they don't keep your address. Full data-flow explainer at the bottom of the page.</p>
+    <p>The form below is your fastest way to reach me. Fill it out and hit send — your message goes straight to <code>syedbabarali336@gmail.com</code>.</p>
 
-    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xpwrnjnd" method="POST" novalidate>
+    <form id="contact-form" class="contact-form" novalidate>
       <div class="field">
         <label for="name">Your name</label>
         <input id="name" name="name" type="text" required minlength="2" maxlength="100" autocomplete="name" placeholder="e.g. Ayesha Khan">
@@ -54,14 +54,8 @@
       </div>
       <div class="field">
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required minlength="10" maxlength="5000" placeholder="A few lines on what you want reviewed. No confidential samples here &mdash; bring those to the call."></textarea>
+        <textarea id="message" name="message" rows="6" required minlength="10" maxlength="5000" placeholder="A few lines on what you want reviewed. No confidential samples here — bring those to the call."></textarea>
       </div>
-      <!-- honeypot: real users won't fill this; bots will -->
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-      <!-- subject line Formspree uses in the email it sends me -->
-      <input type="hidden" name="_subject" value="[portfolio] new contact form submission">
-      <!-- after Formspree shows their confirmation, send them to a thank-you hash on this page -->
-      <input type="hidden" name="_next" value="https://babarhasnain.is-a.dev/contact.html#thanks">
       <button class="cta-btn" type="submit" id="submit-btn">Send message</button>
       <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
     </form>
@@ -82,7 +76,7 @@
     <span class="badge-slot"><a href="#" title="FlyRank verification - badge pending">FlyRank graduate badge - pending issue</a></span>
   </div>
 </footer>
-  <!-- contact form: client-side validation + Formspree submission -->
+  <!-- contact form: client-side validation + mailto fallback -->
   <script src="js/contact.js" defer></script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "87348aa98f9b4769a1128fc6ef4ecfa3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
