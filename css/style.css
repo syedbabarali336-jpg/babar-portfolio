@@ -11,12 +11,22 @@
   --accent:#2A9D8F;
   --hairline:rgba(47,59,76,.16);
 }
+@media (prefers-color-scheme: dark) {
+  :root{
+    --ink:#F5F5F3;
+    --bg:#0F1419;
+    --slate:#B8BEC8;
+    --accent:#4DD5C4;
+    --hairline:rgba(184,190,200,.16);
+  }
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   font-family:'Inter',system-ui,sans-serif;
   font-weight:400;font-size:17px;line-height:1.65;
   color:var(--ink);background:var(--bg);
+  transition:background-color 0.3s ease,color 0.3s ease;
 }
 h1,h2,h3,.brand,.cta-btn,.kicker{font-family:'Space Grotesk',sans-serif}
 h1{font-weight:700;font-size:clamp(2.1rem,4.6vw,3.3rem);line-height:1.12}
@@ -160,4 +170,39 @@ footer.site p{font-size:.85rem;color:var(--slate);max-width:none}
   .contact-form{padding:20px;margin:20px 0}
   .contact-form label{font-size:.9rem}
   .contact-form input[type=text],.contact-form input[type=email],.contact-form textarea{font-size:16px;padding:12px}
+}
+
+/* ---------- Lead badge for case studies ---------- */
+.lead-badge{
+  display:inline-block;
+  background:var(--accent);
+  color:var(--bg);
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  font-size:.75rem;
+  letter-spacing:.08em;
+  padding:6px 10px;
+  border-radius:4px;
+  margin-left:8px;
+  text-transform:uppercase;
+}
+
+/* ---------- Dark mode toggle ---------- */
+.dark-mode-toggle{
+  background:none;
+  border:1px solid var(--slate);
+  color:var(--slate);
+  font-size:.85rem;
+  padding:8px 12px;
+  border-radius:4px;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  font-weight:500;
+}
+.dark-mode-toggle:hover{
+  background:var(--slate);
+  color:var(--bg);
+}
+@media(max-width:640px){
+  .dark-mode-toggle{font-size:.75rem;padding:6px 10px}
 }

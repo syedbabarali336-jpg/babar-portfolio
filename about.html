@@ -34,7 +34,11 @@
     <span class="kicker">About</span>
     <!-- HEADSHOT SLOT: drop about_headshot.jpg into assets/ and uncomment -->
     <!-- <img src="assets/about_headshot.jpg" alt="Portrait of Syed Babar Hasnain Ali Naqvi" style="max-width:220px;border-radius:8px;border:1px solid var(--hairline)"> -->
-    <p>I'm a BSc Cybersecurity student at COMSATS University. I care about reverse engineering because it turns the scariest thing in security &mdash; an unknown file &mdash; into something you can describe: here's what it does, here's what to do about it. I use AI for the mass extraction and the source-checking; I keep the judgment for myself. That means I don't submit AI output I can't explain.</p>
+    <p>I'm a third-year BSc Cybersecurity student at COMSATS University. Reverse engineering matters to me because it turns the moment a team is most afraid — "unknown file, no idea what it does" — into something actionable. Not a guess. A description: here's what it does, here's what to do about it.</p>
+
+    <p>I got into RE in second year when I had to analyze a ransomware sample for a security lab. Static analysis caught the persistence mechanism, but I was stuck on the encryption routine. That's when I learned the discipline: you don't guess. You read the assembly, you trace the logic, you build the model. Once you have the model, the findings write themselves.</p>
+
+    <p><strong>Tools I use:</strong> Ghidra (primary disassembler), IDA Free (comparative analysis), Binary Ninja (complex samples), Python (static analysis automation), Wireshark (network traffic analysis), and the usual command-line utilities (<code>strings</code>, <code>objdump</code>, <code>file</code>). I use AI for mass extraction and source-checking; I keep the judgment for myself. That means I don't submit AI output I can't explain.</p>
     <div class="facts">
       <span>COMSATS Cybersecurity</span>
       <span>Reverse engineering focus</span>
@@ -48,10 +52,15 @@
 <footer class="site">
   <div class="wrap">
     <p>&copy; 2026 Syed Babar Hasnain Ali Naqvi &middot; Built with AI, honestly documented.</p>
-    <!-- FLYRANK BADGE: replace this block with the official graduate badge snippet once issued -->
-    <span class="badge-slot"><a href="#" title="FlyRank verification - badge pending">FlyRank graduate badge - pending issue</a></span>
+    <div style="display:flex;gap:12px;align-items:center">
+      <button class="dark-mode-toggle" id="dark-mode-toggle">🌙 Dark mode</button>
+      <!-- FLYRANK BADGE: replace this block with the official graduate badge snippet once issued -->
+      <span class="badge-slot"><a href="#" title="FlyRank verification - badge pending">FlyRank graduate badge - pending issue</a></span>
+    </div>
   </div>
 </footer>
+  <!-- Dark mode toggle -->
+  <script src="js/dark-mode.js"></script>
   <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "87348aa98f9b4769a1128fc6ef4ecfa3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
