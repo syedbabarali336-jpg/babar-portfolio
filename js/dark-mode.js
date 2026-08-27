@@ -11,6 +11,21 @@
 
 const DARK_MODE_KEY = 'portfolio-dark-mode';
 
+// Apply theme BEFORE the body paints, to prevent the white-flash on dark-mode visitors.
+// This runs synchronously at script-execute time (no DOMContentLoaded wait), so the
+// data-theme attribute is set before the browser paints the first frame.
+(function preventFlash() {
+  try {
+    var saved = localStorage.getItem(DARK_MODE_KEY);
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved ? saved === 'dark' : prefersDark;
+    if (isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.style.colorScheme = 'dark';
+    }
+  } catch (_) { /* localStorage may be blocked - ignore, CSS will fall back */ }
+})();
+
 function initDarkMode() {
   const toggle = document.getElementById('dark-mode-toggle');
   if (!toggle) return;

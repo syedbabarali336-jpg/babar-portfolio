@@ -26,8 +26,7 @@ const submitBtn = document.getElementById('submit-btn');
 window.addEventListener('DOMContentLoaded', () => {
   if (window.location.hash === '#thanks') {
     statusEl.innerHTML = '✓ Message sent! I\'ll reply within 24 hours.';
-    statusEl.style.color = '#2a9d8f';
-    statusEl.style.fontWeight = '500';
+    statusEl.className = 'form-status form-status--ok';
     // Clear hash so the form resets if they refresh
     window.history.replaceState({}, document.title, window.location.pathname);
   }
@@ -46,7 +45,7 @@ form.addEventListener('submit', (e) => {
   // Validate all fields
   if (!name || !email || !subject || !message) {
     statusEl.innerHTML = '⚠ Please fill all fields.';
-    statusEl.style.color = '#d97706';
+    statusEl.className = 'form-status form-status--warn';
     return;
   }
 
@@ -54,7 +53,14 @@ form.addEventListener('submit', (e) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     statusEl.innerHTML = '⚠ Please enter a valid email.';
-    statusEl.style.color = '#d97706';
+    statusEl.className = 'form-status form-status--warn';
+    return;
+  }
+
+  // Length guards (defensive - the HTML maxlength catches most, but JS is final say)
+  if (name.length > 100 || email.length > 254 || subject.length > 150 || message.length > 5000) {
+    statusEl.innerHTML = '⚠ One of the fields is too long.';
+    statusEl.className = 'form-status form-status--warn';
     return;
   }
 
@@ -67,9 +73,9 @@ form.addEventListener('submit', (e) => {
 
   // Show feedback to user
   statusEl.innerHTML = '✓ Opening your email client... Send the email from there.';
-  statusEl.style.color = '#2a9d8f';
+  statusEl.className = 'form-status form-status--ok';
   submitBtn.disabled = true;
-  submitBtn.style.opacity = '0.6';
+  submitBtn.setAttribute('aria-busy', 'true');
 
   // Open mailto link (opens user's default email client)
   window.location.href = mailtoLink;
@@ -78,7 +84,16 @@ form.addEventListener('submit', (e) => {
   setTimeout(() => {
     form.reset();
     statusEl.innerHTML = '';
+    statusEl.className = 'form-status';
     submitBtn.disabled = false;
-    submitBtn.style.opacity = '1';
+    submitBtn.removeAttribute('aria-busy');
   }, 1500);
+});
+
+// Double-submit guard: any rapid second click on submit is ignored
+let submitting = false;
+form.addEventListener('submit', () => {
+  if (submitting) return;
+  submitting = true;
+  setTimeout(() => { submitting = false; }, 1500);
 });

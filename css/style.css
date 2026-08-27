@@ -183,6 +183,8 @@ footer.site p{font-size:.85rem;color:var(--slate);max-width:none}
 .contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--slate);outline-offset:-1px;border-color:var(--slate)}
 .contact-form button[type=submit]{margin-top:12px;width:100%}
 .form-status{display:block;margin-top:14px;font-size:.9rem;min-height:1.5em;word-wrap:break-word}
+.form-status--ok{color:var(--accent);font-weight:500}
+.form-status--warn{color:#d97706;font-weight:500}
 @media(max-width:640px){
   .contact-form{padding:20px;margin:20px 0}
   .contact-form label{font-size:.9rem}
