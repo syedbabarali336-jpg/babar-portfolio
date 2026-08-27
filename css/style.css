@@ -30,43 +30,61 @@ strong{font-weight:500}
 
 /* ---------- header / nav ---------- */
 header.site{border-bottom:1px solid var(--hairline)}
-header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px;flex-wrap:wrap;gap:12px}
 .brand{font-weight:600;font-size:1.02rem;letter-spacing:.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
 .brand img{width:26px;height:26px;border-radius:6px;display:block}
-nav.top{display:flex;gap:22px}
-nav.top a{color:var(--slate);text-decoration:none;font-size:.95rem}
+nav.top{display:flex;gap:22px;flex-wrap:wrap}
+nav.top a{color:var(--slate);text-decoration:none;font-size:.95rem;padding:6px 4px;min-height:44px;display:inline-flex;align-items:center}
 nav.top a:hover,nav.top a[aria-current=page]{color:var(--ink)}
-@media(max-width:640px){nav.top{gap:14px;flex-wrap:wrap}}
+@media(max-width:768px){
+  header.site .wrap{flex-direction:column;align-items:flex-start;gap:14px}
+  nav.top{gap:8px;width:100%;justify-content:flex-start}
+  nav.top a{font-size:.9rem;padding:8px 6px}
+}
+@media(max-width:480px){
+  .brand{font-size:.95rem}
+  nav.top a{font-size:.85rem;padding:7px 5px}
+}
 
 /* ---------- sections ---------- */
 section{padding:64px 0}
 .kicker{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin-bottom:16px;font-weight:600}
 .lede{font-size:1.08rem;color:var(--slate)}
+@media(max-width:768px){section{padding:48px 0}}
 
 /* ---------- hero ---------- */
 .hero{padding-top:92px;padding-bottom:80px}
 .hero p.sub{margin:22px 0 34px;font-size:1.15rem;color:var(--slate)}
+@media(max-width:768px){.hero{padding-top:56px;padding-bottom:48px}.hero p.sub{font-size:1.05rem}}
 
 /* ---------- CTA (the ONE accent) ---------- */
 .cta-btn{
   display:inline-block;background:var(--accent);color:var(--ink);
   font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.02rem;text-decoration:none;
-  padding:15px 30px;border-radius:5px;border:none;cursor:pointer;
+  padding:15px 30px;border-radius:5px;border:none;cursor:pointer;min-height:48px;line-height:1.2;
 }
 .cta-btn:hover{filter:brightness(1.06)}
+.cta-btn:active{filter:brightness(0.96)}
+@media(max-width:640px){
+  .cta-btn{display:block;text-align:center;padding:16px 24px;font-size:1.05rem;width:100%;max-width:100%;box-sizing:border-box}
+}
 .cta-note{font-size:.85rem;color:var(--slate);margin-top:12px}
 
 /* ---------- cards / cases ---------- */
 .card{background:#fff;border:1px solid var(--hairline);border-radius:8px;padding:34px 34px 28px;margin-bottom:26px}
 .card .tag{font-family:'Space Grotesk';font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);font-weight:600}
+@media(max-width:640px){.card{padding:24px 20px 20px;margin-bottom:20px}}
 .beats{margin:18px 0 0;padding-left:0;list-style:none}
 .beats li{margin-bottom:12px;padding-left:88px;position:relative}
 .beats b{position:absolute;left:0;top:2px;font-family:'Space Grotesk';font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);font-weight:600}
 @media(max-width:560px){.beats li{padding-left:0}.beats b{position:static;display:block;margin-bottom:2px}}
-table.ioc{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92rem}
+/* Responsive table wrapper for IOC tables */
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0}
+table.ioc{width:100%;border-collapse:collapse;margin:0;font-size:.92rem;min-width:480px}
 table.ioc th,table.ioc td{border:1px solid var(--hairline);padding:8px 10px;text-align:left;vertical-align:top}
 table.ioc th{font-family:'Space Grotesk';font-weight:600;background:#f2f1ec}
-code,.mono{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:.88em;background:#f2f1ec;padding:1px 5px;border-radius:3px}
+@media(max-width:640px){table.ioc{font-size:.85rem}table.ioc th,table.ioc td{padding:6px 8px}}
+code,.mono{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:.88em;background:#f2f1ec;padding:1px 5px;border-radius:3px;overflow-wrap:break-word;word-break:break-word}
 .pending{font-size:.9rem;color:var(--slate);font-style:italic}
 .num{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
 
@@ -75,10 +93,12 @@ code,.mono{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size
 .strip a.card{display:block;text-decoration:none;color:inherit;margin-bottom:0;transition:border-color .15s}
 .strip a.card:hover{border-color:var(--slate)}
 .strip .go{font-size:.9rem;color:var(--slate);margin-top:14px;display:block}
+@media(max-width:480px){.strip{grid-template-columns:1fr;gap:16px}}
 
 /* ---------- cta band ---------- */
 .band{border-top:1px solid var(--hairline);text-align:center}
 .band h2{margin-bottom:22px}
+@media(max-width:640px){.band h2{font-size:1.25rem}.band{padding:0 16px}}
 
 /* ---------- facts strip ---------- */
 .facts{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}
@@ -88,16 +108,20 @@ code,.mono{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size
 textarea#paste{
   width:100%;min-height:220px;resize:vertical;
   font-family:ui-monospace,Consolas,monospace;font-size:.9rem;line-height:1.55;
-  color:var(--ink);background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px;
+  color:var(--ink);background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px;box-sizing:border-box;
 }
 textarea#paste:focus{outline:2px solid var(--slate);outline-offset:-1px}
+@media(max-width:640px){textarea#paste{font-size:.85rem;padding:12px;min-height:180px}}
 .btnrow{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 6px;align-items:center}
+.btnrow button{flex:1;min-width:0}
+@media(min-width:641px){.btnrow button{flex:0 0 auto}}
 button.ghost{
   background:none;border:1px solid var(--slate);color:var(--slate);
   font-family:'Space Grotesk';font-weight:600;font-size:.92rem;
-  padding:11px 20px;border-radius:5px;cursor:pointer;
+  padding:11px 20px;border-radius:5px;cursor:pointer;min-height:44px;
 }
 button.ghost:hover{color:var(--ink);border-color:var(--ink)}
+button.ghost:active{background:#f2f1ec}
 .err{display:none;color:#7c2d29;border:1px solid #dcb4b1;background:#faf0ef;border-radius:6px;padding:12px 16px;margin:14px 0;font-size:.95rem}
 .err.show{display:block}
 .report{margin-top:26px}
@@ -113,6 +137,11 @@ footer.site .wrap{display:flex;justify-content:space-between;align-items:center;
 footer.site p{font-size:.85rem;color:var(--slate);max-width:none}
 .badge-slot{font-size:.85rem;color:var(--slate);display:flex;align-items:center;gap:8px}
 .badge-slot a{color:var(--slate)}
+@media(max-width:640px){
+  footer.site{padding:28px 0 34px;margin-top:16px}
+  footer.site .wrap{flex-direction:column;justify-content:flex-start;align-items:flex-start;gap:12px}
+  footer.site p,.badge-slot{font-size:.8rem}
+}
 
 /* ---------- contact form ---------- */
 .contact-form{margin:26px 0;background:#fff;border:1px solid var(--hairline);border-radius:8px;padding:28px;max-width:540px}
@@ -121,8 +150,14 @@ footer.site p{font-size:.85rem;color:var(--slate);max-width:none}
 .contact-form input[type=text],.contact-form input[type=email],.contact-form textarea{
   width:100%;font-family:'Inter',system-ui,sans-serif;font-size:1rem;line-height:1.55;
   padding:12px 14px;border:1px solid var(--hairline);border-radius:6px;color:var(--ink);background:#fff;
+  box-sizing:border-box;min-height:44px;
 }
+.contact-form textarea{min-height:120px;resize:vertical}
 .contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--slate);outline-offset:-1px;border-color:var(--slate)}
-.contact-form textarea{resize:vertical;font-size:.95rem}
-.contact-form button[type=submit]{margin-top:8px}
-.form-status{display:block;margin-top:14px;font-size:.9rem;min-height:1.5em}
+.contact-form button[type=submit]{margin-top:12px;width:100%}
+.form-status{display:block;margin-top:14px;font-size:.9rem;min-height:1.5em;word-wrap:break-word}
+@media(max-width:640px){
+  .contact-form{padding:20px;margin:20px 0}
+  .contact-form label{font-size:.9rem}
+  .contact-form input[type=text],.contact-form input[type=email],.contact-form textarea{font-size:16px;padding:12px}
+}
