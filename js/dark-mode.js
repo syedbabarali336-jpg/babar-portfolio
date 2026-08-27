@@ -6,6 +6,7 @@
  * - Manual toggle button in footer
  * - Saves preference to localStorage
  * - Smooth transitions between modes
+ * - Properly triggers CSS variable changes for cards, forms, and dialogue boxes
  */
 
 const DARK_MODE_KEY = 'portfolio-dark-mode';
@@ -24,7 +25,7 @@ function initDarkMode() {
 
   // Listen for toggle clicks
   toggle.addEventListener('click', () => {
-    const isCurrentlyDark = document.documentElement.style.colorScheme === 'dark';
+    const isCurrentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const newDark = !isCurrentlyDark;
     applyDarkMode(newDark);
     localStorage.setItem(DARK_MODE_KEY, newDark ? 'dark' : 'light');
@@ -39,13 +40,16 @@ function initDarkMode() {
 }
 
 function applyDarkMode(isDark) {
+  const toggle = document.getElementById('dark-mode-toggle');
   if (isDark) {
+    // Force dark mode by setting data-theme attribute
+    document.documentElement.setAttribute('data-theme', 'dark');
     document.documentElement.style.colorScheme = 'dark';
-    const toggle = document.getElementById('dark-mode-toggle');
     if (toggle) toggle.textContent = '☀ Light mode';
   } else {
+    // Force light mode by setting data-theme attribute
+    document.documentElement.setAttribute('data-theme', 'light');
     document.documentElement.style.colorScheme = 'light';
-    const toggle = document.getElementById('dark-mode-toggle');
     if (toggle) toggle.textContent = '🌙 Dark mode';
   }
 }

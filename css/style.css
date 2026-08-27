@@ -9,16 +9,29 @@
   --bg:#FAFAF7;
   --slate:#2F3B4C;
   --accent:#2A9D8F;
+  --card-bg:#FFFFFF;
+  --code-bg:#F2F1EC;
   --hairline:rgba(47,59,76,.16);
 }
 @media (prefers-color-scheme: dark) {
-  :root{
+  :root:not([data-theme="light"]){
     --ink:#F5F5F3;
     --bg:#0F1419;
     --slate:#B8BEC8;
     --accent:#4DD5C4;
+    --card-bg:#1A2028;
+    --code-bg:#232A33;
     --hairline:rgba(184,190,200,.16);
   }
+}
+[data-theme="dark"]{
+  --ink:#F5F5F3;
+  --bg:#0F1419;
+  --slate:#B8BEC8;
+  --accent:#4DD5C4;
+  --card-bg:#1A2028;
+  --code-bg:#232A33;
+  --hairline:rgba(184,190,200,.16);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -69,19 +82,20 @@ section{padding:64px 0}
 
 /* ---------- CTA (the ONE accent) ---------- */
 .cta-btn{
-  display:inline-block;background:var(--accent);color:var(--ink);
+  display:inline-block;background:var(--accent);color:#FFFFFF;
   font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.02rem;text-decoration:none;
   padding:15px 30px;border-radius:5px;border:none;cursor:pointer;min-height:48px;line-height:1.2;
+  transition:filter 0.2s ease;
 }
-.cta-btn:hover{filter:brightness(1.06)}
-.cta-btn:active{filter:brightness(0.96)}
+.cta-btn:hover{filter:brightness(0.95);box-shadow:0 2px 8px rgba(42,157,143,0.25)}
+.cta-btn:active{filter:brightness(0.85)}
 @media(max-width:640px){
   .cta-btn{display:block;text-align:center;padding:16px 24px;font-size:1.05rem;width:100%;max-width:100%;box-sizing:border-box}
 }
 .cta-note{font-size:.85rem;color:var(--slate);margin-top:12px}
 
 /* ---------- cards / cases ---------- */
-.card{background:#fff;border:1px solid var(--hairline);border-radius:8px;padding:34px 34px 28px;margin-bottom:26px}
+.card{background:var(--card-bg);border:1px solid var(--hairline);border-radius:8px;padding:34px 34px 28px;margin-bottom:26px;transition:background-color 0.3s ease}
 .card .tag{font-family:'Space Grotesk';font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);font-weight:600}
 @media(max-width:640px){.card{padding:24px 20px 20px;margin-bottom:20px}}
 .beats{margin:18px 0 0;padding-left:0;list-style:none}
@@ -92,9 +106,9 @@ section{padding:64px 0}
 .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0}
 table.ioc{width:100%;border-collapse:collapse;margin:0;font-size:.92rem;min-width:480px}
 table.ioc th,table.ioc td{border:1px solid var(--hairline);padding:8px 10px;text-align:left;vertical-align:top}
-table.ioc th{font-family:'Space Grotesk';font-weight:600;background:#f2f1ec}
+table.ioc th{font-family:'Space Grotesk';font-weight:600;background:var(--code-bg);transition:background-color 0.3s ease}
 @media(max-width:640px){table.ioc{font-size:.85rem}table.ioc th,table.ioc td{padding:6px 8px}}
-code,.mono{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:.88em;background:#f2f1ec;padding:1px 5px;border-radius:3px;overflow-wrap:break-word;word-break:break-word}
+code,.mono{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:.88em;background:var(--code-bg);padding:1px 5px;border-radius:3px;overflow-wrap:break-word;word-break:break-word;transition:background-color 0.3s ease}
 .pending{font-size:.9rem;color:var(--slate);font-style:italic}
 .num{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums}
 
@@ -118,7 +132,8 @@ code,.mono{font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size
 textarea#paste{
   width:100%;min-height:220px;resize:vertical;
   font-family:ui-monospace,Consolas,monospace;font-size:.9rem;line-height:1.55;
-  color:var(--ink);background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:16px;box-sizing:border-box;
+  color:var(--ink);background:var(--card-bg);border:1px solid var(--hairline);border-radius:6px;padding:16px;box-sizing:border-box;
+  transition:background-color 0.3s ease,color 0.3s ease;
 }
 textarea#paste:focus{outline:2px solid var(--slate);outline-offset:-1px}
 @media(max-width:640px){textarea#paste{font-size:.85rem;padding:12px;min-height:180px}}
@@ -129,10 +144,11 @@ button.ghost{
   background:none;border:1px solid var(--slate);color:var(--slate);
   font-family:'Space Grotesk';font-weight:600;font-size:.92rem;
   padding:11px 20px;border-radius:5px;cursor:pointer;min-height:44px;
+  transition:all 0.2s ease;
 }
 button.ghost:hover{color:var(--ink);border-color:var(--ink)}
-button.ghost:active{background:#f2f1ec}
-.err{display:none;color:#7c2d29;border:1px solid #dcb4b1;background:#faf0ef;border-radius:6px;padding:12px 16px;margin:14px 0;font-size:.95rem}
+button.ghost:active{background:var(--code-bg)}
+.err{display:none;color:#dc2626;border:1px solid #dcb4b1;background:rgba(220,38,38,0.08);border-radius:6px;padding:12px 16px;margin:14px 0;font-size:.95rem;transition:background-color 0.3s ease}
 .err.show{display:block}
 .report{margin-top:26px}
 .report h3{margin-top:28px}
@@ -154,13 +170,14 @@ footer.site p{font-size:.85rem;color:var(--slate);max-width:none}
 }
 
 /* ---------- contact form ---------- */
-.contact-form{margin:26px 0;background:#fff;border:1px solid var(--hairline);border-radius:8px;padding:28px;max-width:540px}
+.contact-form{margin:26px 0;background:var(--card-bg);border:1px solid var(--hairline);border-radius:8px;padding:28px;max-width:540px;transition:background-color 0.3s ease}
 .contact-form .field{margin-bottom:22px}
 .contact-form label{display:block;font-family:'Space Grotesk';font-weight:600;font-size:.95rem;color:var(--ink);margin-bottom:8px}
 .contact-form input[type=text],.contact-form input[type=email],.contact-form textarea{
   width:100%;font-family:'Inter',system-ui,sans-serif;font-size:1rem;line-height:1.55;
-  padding:12px 14px;border:1px solid var(--hairline);border-radius:6px;color:var(--ink);background:#fff;
+  padding:12px 14px;border:1px solid var(--hairline);border-radius:6px;color:var(--ink);background:var(--card-bg);
   box-sizing:border-box;min-height:44px;
+  transition:background-color 0.3s ease,color 0.3s ease,border-color 0.2s ease;
 }
 .contact-form textarea{min-height:120px;resize:vertical}
 .contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--slate);outline-offset:-1px;border-color:var(--slate)}
